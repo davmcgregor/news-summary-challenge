@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/davmcgregor/news-summary-challenge.svg?branch=master)](https://travis-ci.org/davmcgregor/news-summary-challenge)
+
 ### [Makers Academy](http://www.makersacademy.com) - Week 7 Wekeend Challenge 
 
 # News Summary 📰
