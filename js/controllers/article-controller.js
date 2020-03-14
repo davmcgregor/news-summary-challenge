@@ -17,16 +17,20 @@
 
 
     function loadContent() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          var articles = JSON.parse(this.responseText).response.results;
-          updateArticleList(articles)
-          showSingleArticle()
-        };
-      };
-      xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
-      xhttp.send()
+      var articles = articlesJSON.response.results
+      console.log(articles)
+      updateArticleList(articles)
+      // Guardian data stub
+      // var xhttp = new XMLHttpRequest();
+      // xhttp.onreadystatechange = function () {
+      //   if (this.readyState == 4 && this.status == 200) {
+      //     var articles = JSON.parse(this.responseText).response.results;
+      //     updateArticleList(articles)
+      //     showSingleArticle()
+      //   };
+      // };
+      // xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
+      // xhttp.send()
     }
 
     function showSingleArticle() {

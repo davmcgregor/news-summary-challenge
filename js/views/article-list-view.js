@@ -6,8 +6,8 @@
 
     function allArticlesHTML() {
       var html = '<div>';
-      articles.map((article) => {
-        html += '<article><p id="headlines">' + headlineHTML(article) + '</p>'
+      articles.map((article, index) => {
+        html += '<article><h2 id="headlines">' + (index + 1) + ") " + headlineHTML(article) + '</h2>'
         + '<img src="' + imagesHTML(article) + '">' + '<br><p><a href="' + urlHTML(article) + '">' + "Click To Read Full Story" + '</a></p></article>'
       });
       return html + "</div>";
