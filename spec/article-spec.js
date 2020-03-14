@@ -4,10 +4,10 @@ describe('Article', () => {
 
   var headline = "headline"
   var summary = "summary"
-  var URL = "url"
+  var URL = "URL"
   var image = "image" 
 
-  var article = new Article(headline, URL)
+  var article = new Article(headline, URL, image, summary)
 
   it('is created with a headline', () => {
     expect(article.showHeadline()).toEq("headline")
@@ -18,10 +18,10 @@ describe('Article', () => {
   })
 
   it('has a link to the full story', function () {
-    expect(article.showURL()).toEq("url")
+    expect(article.showURL()).toEq("URL")
   })
 
   it('has an image attached to the story', function () {
-    expect(article.showImage()).toEq("Image")
+    expect(article.showImage()).toEq("image")
   })
 })

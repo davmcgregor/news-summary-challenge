@@ -2,10 +2,10 @@
 
 (function (exports) {
   exports.ArticleList = function () {
-    var _articles = [];
+    var articles = [];
 
-    function showArticles() {
-      return _articles;
+    function allArticles() {
+      return articles;
     };
 
     function addArticle(headline, URL, image, body) {
@@ -16,7 +16,7 @@
 
     function summarize(body) {
       var firstParagraphRegExp = /<p>(.+?)<\/p>/;
-      summary = body.match(firstParagraphRegExp);
+      var summary = body.match(firstParagraphRegExp);
       try {
         return summary.shift();
       } catch (error) {
@@ -25,10 +25,8 @@
     };
 
     return {
-      showArticles,
-      addArticle,
-      firstParagraphRegExp,
-      summary
-    };
-  };
+      allArticles,
+      addArticle
+    }
+  }
 })(this);

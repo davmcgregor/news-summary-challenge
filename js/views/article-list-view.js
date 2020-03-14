@@ -1,0 +1,47 @@
+'use strict';
+
+(function (exports) {
+  exports.ArticleListView = function (articleList) {
+    var articles = articleList.allArticles();
+
+    function allArticlesHTML() {
+      var html = '<div>';
+      articles.map((article) => {
+        html += '<article><p id="headlines">' + headlineHTML(article) + '</p>'
+        + '<img src="' + imagesHTML(article) + '">' + '<br><p><a href="' + urlHTML(article) + '">' + "Click To Read Full Story" + '</a></p></article>'
+      });
+      return html + "</div>";
+    }
+
+    function returnSingleArticle(imageNode) {
+      singleArticle
+      articles.forEach((article) => {
+        if (imageNode.outerHTML.search(article.featureImage()) === 10) {
+          singleArticle = article
+        };
+      });
+      return singleArticle
+    };
+
+    function headlineHTML(article) {
+      return article.showHeadline()
+    }
+
+    function urlHTML(article) {
+      return article.showURL()
+    }
+
+    function imagesHTML(article) {
+      return article.showImage()
+    }
+
+    function summaryHTML(article) {
+      return article.showSummary()
+    }
+
+    return {
+      allArticlesHTML,
+      returnSingleArticle
+    }
+  }
+})(this);

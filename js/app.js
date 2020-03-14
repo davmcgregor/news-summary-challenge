@@ -2,7 +2,7 @@
 
 (function() {
 
-  var articleController = new ArticleController(ArticleList, ArticleListView);
+  var articleController = new ArticleController(ArticleList, ArticleListView, ArticleView);
 
   window.addEventListener('load', function() {
     articleController.loadContent();
