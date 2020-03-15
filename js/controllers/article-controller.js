@@ -50,7 +50,7 @@
     function updateArticleList(articles) {
       articles.forEach((article) => {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", `http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=${article.webUrl}`, false );
+        xmlHttp.open( "GET", makersDomain + aylienSummary + article.webUrl, false );
         xmlHttp.send();
         var response = JSON.parse(xmlHttp.responseText)
         var summary = response.sentences.join(" ")
