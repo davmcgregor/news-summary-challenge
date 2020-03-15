@@ -11,6 +11,7 @@
     var imageNodes = document.getElementsByTagName("IMG")
 
     var makersDomain = 'http://news-summary-api.herokuapp.com/';
+    var aylienSummary = 'aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=';
     var guardianAPIRequest = 'guardian?apiRequestUrl=';
     var url = 'http://content.guardianapis.com/search?';
     var allFields = 'show-fields=all';
@@ -21,18 +22,18 @@
       console.log(articles)
       updateArticleList(articles)
       // Guardian data stub
-      // var xhttp = new XMLHttpRequest();
-      // xhttp.onreadystatechange = function () {
-      //   if (this.readyState == 4 && this.status == 200) {
-      //     var articles = JSON.parse(this.responseText).response.results;
-      //     updateArticleList(articles)
-      //     showSingleArticle()
-      //   };
-      // };
-      // xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
-      // xhttp.send()
+    //   var xhttp = new XMLHttpRequest();
+    //   xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //       var articles = JSON.parse(this.responseText).response.results;
+    //       updateArticleList(articles)
+    //       showSingleArticle()
+    //     };
+    //   };
+    //   xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
+    //   xhttp.send()
     }
-
+  
     function showSingleArticle() {
       var imageArray = [].slice.call(imageNodes)
       imageArray.forEach((imageNode) => {
@@ -48,7 +49,12 @@
 
     function updateArticleList(articles) {
       articles.forEach((article) => {
-        articleList.addArticle(article.webTitle, article.webUrl, article.fields.thumbnail, article.fields.body)
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", `http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=${article.webUrl}`, false );
+        xmlHttp.send();
+        var response = JSON.parse(xmlHttp.responseText)
+        var summary = response.sentences.join(" ")
+        articleList.addArticle(article.webTitle, article.webUrl, article.fields.thumbnail, summary)
       })
       showCurrentArticleList()
     }
