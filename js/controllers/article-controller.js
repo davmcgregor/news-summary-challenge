@@ -106,7 +106,7 @@
         document.getElementById(`body/` + `${index}`).innerHTML = articleList.allArticles()[index].showSummary()
       };  
     }
-
+    
     return {
       loadContent,
       showSummaries,

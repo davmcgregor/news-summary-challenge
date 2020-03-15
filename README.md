@@ -61,10 +61,8 @@ To make my news reading more fun
 
 ## <a name="Mockups">Mockups</a>
 
-### Headlines page
-
 ![Headlines page mockup](/images/news-summary-project-headlines-page-mockup.png)
 
-### Article summary page
+## <a name="Further_Improvements">Further Improvements</a>
 
-![Article page mockup](/images/news-summary-project-article-page-mockup.png)
+* Add a show/hide feature for article summaries: https://stackoverflow.com/questions/43755677/change-text-show-hide-on-button-click-not-working
