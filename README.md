@@ -8,7 +8,7 @@
 
 [Task](#Task) |  [Installation Instructions](#Installation) | [User Stories](#User_Stories) | [Mockups](#Mockups) | [Further improvements](#Further_Improvements)
 
-![screenshot](screenshot.jpg)
+![screenshot](/images/screenshot.jpg)
 
 This app is hosted at: http://fortunate-knowledge.surge.sh/
 
