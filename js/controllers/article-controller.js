@@ -18,20 +18,20 @@
 
 
     function loadContent() {
-      var articles = articlesJSON.response.results
-      console.log(articles)
-      updateArticleList(articles)
+      // var articles = articlesJSON.response.results
+      // console.log(articles)
+      // updateArticleList(articles)
       // Guardian data stub
-    //   var xhttp = new XMLHttpRequest();
-    //   xhttp.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       var articles = JSON.parse(this.responseText).response.results;
-    //       updateArticleList(articles)
-    //       showSingleArticle()
-    //     };
-    //   };
-    //   xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
-    //   xhttp.send()
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var articles = JSON.parse(this.responseText).response.results;
+          updateArticleList(articles)
+          showSingleArticle()
+        };
+      };
+      xhttp.open("GET", makersDomain + guardianAPIRequest + url + allFields, true);
+      xhttp.send()
     }
   
     function showSingleArticle() {
@@ -96,8 +96,20 @@
       articleContainer.style.display = 'block';
     }
 
+    window.addEventListener('hashchange', showSummaries, false);
+    
+    function showSummaries() {
+      var index = window.location.href.split('#summary/')[1];
+      if (index == undefined) {
+        console.log(index)
+      } else {
+        document.getElementById(`body/` + `${index}`).innerHTML = articleList.allArticles()[index].showSummary()
+      };  
+    }
+
     return {
       loadContent,
+      showSummaries,
       showSingleArticle,
     }
   }

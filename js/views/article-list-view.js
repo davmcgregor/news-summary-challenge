@@ -6,9 +6,9 @@
 
     function allArticlesHTML() {
       var html = '<div>';
-      articles.map((article, index) => {
-        html += '<article><h2 id="headlines">' + (index + 1) + ") " + headlineHTML(article) + '</h2>'
-        + '<img src="' + imagesHTML(article) + '">' + '<br><p>' + summaryHTML(article) + '</p><p><a href="' + urlHTML(article) + '">' + "Click To Read Full Story" + '</a></p></article>'
+      articles.map((article, index) => { 
+        html += '<article><h2 id="headlines">' + (index + 1) + ") " + headlineHTML(article) + '</h2>' 
+        + '<img src="' + imagesHTML(article) + '"><br>' + `<br><a href='#summary/${index}'>` + "Click To Read Summary" + `</a><p id='body/${index}'></p>` + '<p><a href="' + urlHTML(article) + '">' + "Click To Read Full Story" + '</a></p></article>'
       });
       return html + "</div>";
     }
